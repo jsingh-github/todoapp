@@ -63,27 +63,50 @@ function addToDo(toDo, id, done, trash){
     list.insertAdjacentHTML(position, item);
 }
 
-document.addEventListener("keyup", function(even){
+// document.addEventListener("keyup", function(even){
 
-    if(event.keyCode == 13){
-        const toDo = input.value;
+//     if(event.keyCode == 13){
+//         const toDo = input.value;
 
-        if(toDo){
-            addToDo(toDo, id, false, false);
+//         if(toDo){
+//             addToDo(toDo, id, false, false);
 
-            LIST.push({
-                name: toDo,
-                id: id,
-                done:false,
-                trash:false
-            });
+//             LIST.push({
+//                 name: toDo,
+//                 id: id,
+//                 done:false,
+//                 trash:false
+//             });
 
-            localStorage.setItem("TODO", JSON.stringify(LIST));
-            id++;
-        }
-        input.value = "";
-    }
+//             localStorage.setItem("TODO", JSON.stringify(LIST));
+//             id++;
+//         }
+//         input.value = "";
+//     }
     
+// });
+
+document.addEventListener("click", function(even){
+    const plusElement = event.target;
+    const plusElementIcon = plusElement.attributes.icon.value 
+
+    if(plusElementIcon == "plus" && input.value != null) {
+        const toDo = input.value;
+        
+        addToDo(toDo, id, false, false);
+
+        LIST.push({
+            name: toDo,
+            id: id,
+            done:false,
+            trash:false
+        });
+
+        localStorage.setItem("TODO", JSON.stringify(LIST));
+        id++;
+    }
+    input.value = "";
+
 });
 
 //complete ToDo

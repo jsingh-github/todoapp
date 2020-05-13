@@ -168,6 +168,27 @@ body{
 
 
 
+.clearicon i{
+    font-size: 30px;
+    color: #FFF;
+    margin-left: 20px;
+}
+
+.clearicon{
+    width: 380px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgray;
+}
+
+.legend {
+    color: #555555;
+}
+
+
+
 
 
 
