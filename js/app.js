@@ -90,9 +90,10 @@ document.addEventListener("click", function(even){
     const plusElement = event.target;
     const plusElementIcon = plusElement.attributes.icon.value 
 
-    if(plusElementIcon == "plus" && input.value != null) {
+    if(plusElementIcon == "plus") {
         const toDo = input.value;
-        
+
+        if(input.value != ""){
         addToDo(toDo, id, false, false);
 
         LIST.push({
@@ -104,9 +105,9 @@ document.addEventListener("click", function(even){
 
         localStorage.setItem("TODO", JSON.stringify(LIST));
         id++;
-    }
+    } 
     input.value = "";
-
+    }
 });
 
 //complete ToDo
